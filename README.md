@@ -1,9 +1,15 @@
 # PoTMoP: PTM-Processing Pipeline 
 
-## Run in docker / enroot 
-This pipeline is part of a bigger pipeline that can be run with enroot on an HPC. For information about that, refer to: <TODO insert github link>. 
+## Motivation
+Refer to [Mass Spectrometry Processing Pipeline](https://github.com/maxh-dev/MaSPP) for the motivation and background information about this pipeline. 
 
-## Run localy
+
+## Usage
+
+### Run with Docker / Enroot 
+This pipeline is part of a bigger pipeline that can be run with Enroot on an HPC. For information about that see [Mass Spectrometry Processing Pipeline](https://github.com/maxh-dev/MaSPP). 
+
+### Run localy
 Create a virtual environment and install the requirements.txt. 
 I'd recommend to create a `launch.json` in vscode: 
 
