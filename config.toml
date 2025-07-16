@@ -1,0 +1,56 @@
+[project]
+name = "PTM Processing"
+version = "1.0.0"
+author = "Max Hoffmann"
+description = ""
+
+[data]
+input_path = "data/raw/"
+processed_path = "data/processed/"
+output_path = "data/output/"
+log_path = "logs/"
+
+[pipeline]
+base_dir = "base_data"
+base_external_dir = "base_data/external"
+base_af_pdb_dir = "base_data/alphafold/pdb"
+base_af_custom_dir = "base_data/alphafold/custom"
+run_dir = "run_data"
+selected_run_id = 0
+last_run_id = 0
+
+[af_annotation_settings]
+full_sphere_exposure_max_dist = 24
+full_sphere_exposure_max_angle = 180
+half_sphere_exposure_max_dist = 12
+half_sphere_exposure_max_angle = 70
+low_high_hse_thresh = 5
+smooth_window_size = 10
+idr_thresh = 34.27
+min_structured_length = 80
+max_unstructured_length = 20
+
+[msfragger_ptms]
+selected_ptms = [ "Acetyl", "Phospho",]
+
+[protein_db]
+ensemble_release_number = 111
+sequence_to_uniprot_location = "base_data/external/sequnce_to_uniprot.json"
+fasta_location = "data/processed/protein_db.fas"
+vcf_directory = "data/raw/mutation_vcf"
+
+[protein_filter]
+fasta_location = "data/processed/protein_db.fas"
+filtered_fasta_location = "data/processed/protein_db_filtered.fas"
+log2_fold_change = "data/raw/experiment/log2_fold_change_df.csv"
+corrected_p_values = "data/raw/experiment/corrected_p_values_df.csv"
+
+[reader_conversion]
+data_path = "data/interim/protein_reader_data"
+processed_csv_location = "data/processed/ptmfile.csv"
+
+[protein_ptm_extractor]
+experiment_data_path = "data/raw/experiment/evidence.txt"
+experiment_groups_path = "data/raw/experiment/groups.csv"
+fasta_path = "data/raw/experiment/aligned.fasta"
+output_path = "data/interim/protein_reader_data/ptms_for_proteins.json"
